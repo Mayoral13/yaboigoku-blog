@@ -5,14 +5,14 @@
             <div class="col-md col-lg-8 mb-4">
                 <div class="row">
                     @foreach($posts as $post)
-                    <div class="col-md-11 col-lg-8 mb-3">
+                    <div class="col-6">
                         <div class="card custom-card post h-100 p-2">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <div class="writer d-flex align-items-center mb-3">
                                         <img src="{{asset('home/assets/img/avatar-1.jpg')}}"  class="img-writer rounded-circle me-2"
                                             alt="{{$post->username}}">
-                                        <a href="#" class="writer-name fw-bolder">{{$post->username}}</a>
+                                        <a href="{{url('post',$post->id)}}" class="writer-name fw-bolder">{{$post->username}}</a>
                                     </div>
                                     <a role="button"><i class="bi bi-bookmark" data-bs-toggle="tooltip"
                                             data-bs-placement="top" title="Save"></i></a>
@@ -24,7 +24,7 @@
                                     </a>
                                     <span class="post-tag">{{$post->category}}</span>
                                 </div>
-                                <a href="COMMENT" class="fs-6 d-block text-dark fw-bolder">{{$post->title}}</a>
+                                <a href="{{url('post',$post->id)}}" class="fs-6 d-block text-dark fw-bolder">{{$post->title}}</a>
                                 <small class="text-secondary">{{$post->created_at}}&bullet;</small>
                             </div>
                         </div>
@@ -55,36 +55,30 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="writer d-flex align-items-center mb-3">
                                         <img src="{{asset('home/assets/img/avatar-2.jpg')}}"  class="img-writer rounded-circle me-2"
-                                            alt="Alexa Jeffrey">
-                                        <a href="#" class="writer-name fw-bolder">Alexa Jeffrey</a>
+                                            alt="Akande Mayowa">
+                                        <a href="#" class="writer-name fw-bolder">Akande Mayowa</a>
                                     </div>
                                     <a role="button" data-bs-toggle="tooltip" data-bs-placement="top"
                                         title="Save"><i class="bi bi-bookmark"></i></a>
                                 </div>
                                 <div class="img-container">
-                                    <a href="/single.html">
+                                    <a href="#">
                                         <img src="{{asset('home/assets/img/post-4.jpg')}}"  alt="Post 4" class="mb-3 rounded-3"
                                             height="180px">
                                     </a>
-                                    <span class="post-tag">Music</span>
+                                    <span class="post-tag">Technology</span>
                                 </div>
-                                <a href="/single.html" class="fs-6 d-block text-dark fw-bolder">How Punk Became
-                                    Punk?</a>
-                                <small class="text-secondary">June 18, 2021 &bullet; 13 min read</small>
+                                <a href="/single.html" class="fs-6 d-block text-dark fw-bolder">Welcome to Yaboigoku's Blog</a>
+                                <small class="text-secondary"> <?php echo(date("Y-m-d"))?> &bullet;</small>
                             </div>
                         </div>
                     </div>
+                   
                       <!-- POPULAR POSTS END--->
                   
                 </div>
                 <!--POSTS EXAMPLE END--->
-                <h4 class="fw-bolder mt-3 mb-4">Popular Topics</h4>
-                <div class="topics">
-                     
-                    <a href="" class="btn btn-dark rounded-pill me-2 mb-3">Tech</a>
-                    <a href="" class="btn btn-outline-dark rounded-pill me-2 mb-3">See All
-                        Topics</a>
-                </div>
+                
                   <!-- POSTS EXAMPLE END--->
             </div>
             <!-- End of Sidebar -->

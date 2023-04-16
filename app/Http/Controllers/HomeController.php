@@ -11,7 +11,8 @@ use Illuminate\Database\Query\IndexHint;
 class HomeController extends Controller
 {
     public function index(){
-        return view("home.index");
+        $posts = Post::paginate(2);
+            return view('home.home',compact('posts'));
     }
     public function login(){
         return redirect("login");
@@ -24,6 +25,10 @@ class HomeController extends Controller
             $posts = Post::paginate(2);
             return view('home.home',compact('posts'));
         }
+    }
+    public function all_posts(){
+        $posts = Post::paginate(3);
+        return view('home.all_posts',compact('posts'));
     }
     public function logout(){
         Session::flush();

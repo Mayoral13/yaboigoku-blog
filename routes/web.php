@@ -21,6 +21,7 @@ Route::get('/redirect',[HomeController::class,'loggedIN']);
 Route::get('/logout',[HomeController::class,'logout']);
 Route::get('/create',[HomeController::class,'create']);
 Route::post('/create_post',[HomeController::class,'create_post']);
+Route::get('/all_posts',[HomeController::class,'all_posts']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
