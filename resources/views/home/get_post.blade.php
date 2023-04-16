@@ -12,7 +12,7 @@
     <!-- End of Footer -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
    
-    <script>
+    <!--------- <script>
         function readingTime() {
             const postContent = document.getElementById('content').innerText
             const wpm = 225;
@@ -23,6 +23,7 @@
 
         readingTime()
     </script>
+ <!----->
    @include('home.scripts');
 </body>
 

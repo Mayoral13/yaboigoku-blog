@@ -30,6 +30,11 @@ class HomeController extends Controller
         $posts = Post::paginate(4);
         return view('home.all_posts',compact('posts'));
     }
+    public function get_post($id){
+        $post = Post::find($id);
+        $posts = Post::paginate(3);
+        return view('home.get_post',compact('post','posts'));
+    }
     public function logout(){
         Session::flush();
         Auth::logout();

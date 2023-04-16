@@ -22,19 +22,19 @@
                                     <div class="writer d-flex align-items-center mb-3">
                                         <img src="{{asset('home/assets/img/avatar-1.jpg')}}"  class="img-writer rounded-circle me-2"
                                             alt="{{$post->username}}">
-                                        <a href="{{url('post',$post->id)}}" class="writer-name fw-bolder">{{$post->username}}</a>
+                                        <a href="{{url('get_post',$post->id)}}" class="writer-name fw-bolder">{{$post->username}}</a>
                                     </div>
                                     <a role="button"><i class="bi bi-bookmark" data-bs-toggle="tooltip"
                                             data-bs-placement="top" title="Save"></i></a>
                                 </div>
                                 <div class="img-container">
-                                    <a href="{{url('post',$post->id)}}">
+                                    <a href="{{url('get_post',$post->id)}}">
                                         <img src="/product/{{$post->image}}"  alt="{{$post->id}}" class="mb-3 rounded-3"
                                             height="200px">
                                     </a>
                                     <span class="post-tag">{{$post->category}}</span>
                                 </div>
-                                <a href="{{url('post',$post->id)}}" class="fs-6 d-block text-dark fw-bolder">{{$post->title}}</a>
+                                <a href="{{url('get_post',$post->id)}}" class="fs-6 d-block text-dark fw-bolder">{{$post->title}}</a>
                                 <small class="text-secondary">{{$post->created_at}}&bullet;</small>
                             </div>
                         </div>
