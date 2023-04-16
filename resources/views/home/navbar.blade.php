@@ -17,7 +17,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
-                @if((Route::has('login'))):
+                @if((Route::has('login')))
                 @auth
                 <li class="nav-item">
                     <a class="nav-link text-primary" href="{{url('logout')}}">Logout</a>

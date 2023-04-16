@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('title');
             $table->string('category');
             $table->longText('post');
-            $table->date('date');
             $table->string('image');
         });
     }

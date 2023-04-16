@@ -1,67 +1,41 @@
+
 <section class="posts mb-4">
     <div class="container">
         <div class="row">
             <div class="col-md col-lg-8 mb-4">
                 <div class="row">
-                    <div class="col-md-12 col-lg-12 mb-3">
+                    @foreach($posts as $post)
+                    <div class="col-md-11 col-lg-8 mb-3">
                         <div class="card custom-card post h-100 p-2">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <div class="writer d-flex align-items-center mb-3">
                                         <img src="{{asset('home/assets/img/avatar-1.jpg')}}"  class="img-writer rounded-circle me-2"
-                                            alt="John Doe">
-                                        <a href="#" class="writer-name fw-bolder">John Doe</a>
+                                            alt="{{$post->username}}">
+                                        <a href="#" class="writer-name fw-bolder">{{$post->username}}</a>
                                     </div>
                                     <a role="button"><i class="bi bi-bookmark" data-bs-toggle="tooltip"
                                             data-bs-placement="top" title="Save"></i></a>
                                 </div>
                                 <div class="img-container">
-                                    <a href="/single.html">
-                                        <img src="{{asset('home/assets/img/post-1.jpg')}}"  alt="Post 1" class="mb-3 rounded-3"
+                                    <a href="{{url('post',$post->id)}}">
+                                        <img src="/product/{{$post->image}}"  alt="{{$post->id}}" class="mb-3 rounded-3"
                                             height="200px">
                                     </a>
-                                    <span class="post-tag">Design</span>
+                                    <span class="post-tag">{{$post->category}}</span>
                                 </div>
-                                <a href="/single.html" class="fs-6 d-block text-dark fw-bolder">17 Inspiring
-                                    Examples
-                                    of
-                                    Beautiful Blog
-                                    Homepage
-                                    Design</a>
-                                <small class="text-secondary">June 26, 2021 &bullet; 2 min read</small>
+                                <a href="COMMENT" class="fs-6 d-block text-dark fw-bolder">{{$post->title}}</a>
+                                <small class="text-secondary">{{$post->created_at}}&bullet;</small>
                             </div>
                         </div>
+                      
                     </div>
-                <!--- POSTS START---->
-                    <div class="col-md-6 col-lg-6 mb-3">
-                        <div class="card custom-card post h-100 p-2">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <div class="writer d-flex align-items-center mb-3">
-                                        <img src="{{asset('home/assets/img/avatar-2.jpg')}}"  class="img-writer rounded-circle me-2"
-                                            alt="Alexa Jeffrey">
-                                        <a href="#" class="writer-name fw-bolder">Alexa Jeffrey</a>
-                                    </div>
-                                    <a role="button" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        title="Save"><i class="bi bi-bookmark"></i></a>
-                                </div>
-                                <div class="img-container">
-                                    <a href="/single.html">
-                                        <img src="{{asset('home/assets/img/post-2.jpg')}}"  alt="Post 2" class="mb-3 rounded-3"
-                                            height="200px">
-                                    </a>
-                                    <span class="post-tag">Tech</span>
-                                </div>
-                                <a href="/single.html" class="fs-6 d-block text-dark fw-bolder">The Best Business
-                                    Laptops for 2021</a>
-                                <small class="text-secondary">June 25, 2021 &bullet; 5 min read</small>
-                            </div>
-                        </div>
-                    </div>
-                     <!--- POSTS END---->
+                    @endforeach
+                   
                 </div>
-                <a href="" class="btn btn-outline-dark rounded-pill mb-4">See More Posts &DoubleRightArrow;</a>
+                <a href="{{url('/all_posts')}}" class="btn btn-outline-dark rounded-pill mb-4">See More Posts &DoubleRightArrow;</a>
             </div>
+         
             <!-- Sidebar -->
             <div class="col-lg-4">
                 <form class="d-none d-lg-block mb-4">
