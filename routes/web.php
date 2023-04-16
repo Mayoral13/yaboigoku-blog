@@ -17,7 +17,8 @@ use App\Http\Controllers\HomeController;
 Route::get('/',[HomeController::class,'index']);
 Route::get('/single',[HomeController::class,'single']);
 Route::get('/login_page',[HomeController::class,'login']);
-
+Route::get('/redirect',[HomeController::class,'loggedIN']);
+Route::get('/logout',[HomeController::class,'logout']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

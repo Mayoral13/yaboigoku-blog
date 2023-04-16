@@ -17,9 +17,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
+                @if((Route::has('login'))):
+                @auth
                 <li class="nav-item">
-                    <a class="nav-link text-primary" href="/login.html">Sign In</a>
+                    <a class="nav-link text-primary" href="{{url('logout')}}">Logout</a>
                 </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="{{url('register')}}">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="{{url('login')}}">Login</a>
+                </li>
+                @endauth
+                @endif
             </ul>
             <form class="d-lg-none d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
