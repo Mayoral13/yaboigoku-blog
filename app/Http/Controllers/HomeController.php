@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -43,6 +44,19 @@ class HomeController extends Controller
 
     public function create(){
         return view('home.create_post');
+    }
+
+    public function comment(Request $req){
+        $comment = new Comment;
+        $user = Auth::user();
+        $comment->username = $user->name;
+        $comment->comment = $req->comment;
+        $comment->post_id = $req->postid;
+
+        $comment->save();
+        return redirect()->back();
+        
+
     }
 
     public function create_post(Request $req){

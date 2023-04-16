@@ -32,20 +32,37 @@
                         </div>
 
                     </div>
-                    <!-- Comment Form (If user was login) -->
-                    <!-- <form action="" class="mb-4">
+                   
+                  <form action="{{url('/comment/{id}')}}" class="mb-4" method = "POST" id = "comment" style = "display:none">
+                    @csrf
                     <div class="mb-3">
+                        <input type="hidden" name="postid" value = "{{$post->id}}">
                         <label class="form-label" for="comment">Comment</label>
-                        <textarea name="" class="form-control" id="comment" cols="30" rows="3"></textarea>
+                        <textarea name="comment" class="form-control" id="comment" cols="30" rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-outline-dark">Submit</button>
-                </form> -->
+                  </form>
 
+              
+               
                     <!-- End of Comment Form -->
                     <br><br>
-                    <a href="" class="btn btn-outline-dark rounded-pill mb-4 d-block">You must login
-                        first to
-                        comment</a>
+                   @if(Route::has('login'))
+                   @auth
+                    <a href="javascript:void(0);" onclick = "comment()"class="btn btn-outline-dark rounded-pill mb-4 d-block">Click to Comment</a>
+                    @endauth
+                    @endif
+
+                    <script>
+                        function comment() {
+                               var x = document.getElementById("comment");
+                               if (x.style.display === "none") {
+                                 x.style.display = "block";
+                               } else {
+                                 x.style.display = "none";
+                               }
+                             }
+                           </script>
                     <!-- Comments -->
                     <div class="comments mb-5">
                         <h4 class="fw-bolder mb-4">4 Comments</h4>
@@ -61,7 +78,7 @@
                                     elit.</small>
                                 <a href="" class="d-block">
                                     <small>Reply</small>
-                                </a>
+                            </a>
                             </div>
                         </div>
                         <div class="d-flex replier mb-4">
@@ -110,13 +127,13 @@
                                                     class="bi bi-bookmark"></i></a>
                                         </div>
                                         <div class="img-container">
-                                            <a href="#">
+                                            <a href="/get_post/{{$post->id}}">
                                                 <img src="/product/{{ $post->image }}" alt="Post 4"
                                                     class="mb-3 rounded-3" height="180px">
                                             </a>
                                             <span class="post-tag">{{ $post->category }}</span>
                                         </div>
-                                        <a href="/get_post/{{$post->id }}"
+                                        <a href="/get_post/{{$post->id}}"
                                             class="fs-6 d-block text-dark fw-bolder">{{ $post->title }}</a>
                                         <small class="text-secondary">{{ $post->created_at }}</small>
                                     </div>
