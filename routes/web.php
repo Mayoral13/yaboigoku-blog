@@ -16,7 +16,7 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/',[HomeController::class,'index']);
 Route::get('/single',[HomeController::class,'single']);
-Route::get('/login',[HomeController::class,'login']);
+Route::get('/login_page',[HomeController::class,'login']);
 
 Route::middleware([
     'auth:sanctum',

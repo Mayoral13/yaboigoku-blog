@@ -1,3 +1,2 @@
-@include('home.styles')
 
-<p>SET LOGIN FORM HERE</p>
+@include('auth.login')
