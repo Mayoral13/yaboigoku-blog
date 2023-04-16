@@ -27,7 +27,7 @@ class HomeController extends Controller
         }
     }
     public function all_posts(){
-        $posts = Post::paginate(3);
+        $posts = Post::paginate(4);
         return view('home.all_posts',compact('posts'));
     }
     public function logout(){

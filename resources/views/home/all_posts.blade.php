@@ -41,10 +41,11 @@
                       
                     </div>
                     @endforeach
-                    {!! $posts->links() !!}
+                   
                 </div>
+                {!!$posts->links('pagination::bootstrap-5')!!}  
             </div>
-            
+        
          
             <!-- Sidebar -->
         
@@ -54,5 +55,6 @@
        
         </div>
     </div>
+  
 </section>
 @include('home.scripts')
