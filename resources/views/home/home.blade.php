@@ -7,9 +7,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="fw-bolder">Bloxithya is a place to write, read and connect</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia nesciunt repellendus sapiente
-                        qui doloremque quae.</p>
+                    <h1 class="fw-bolder">Yaboigoku</h1>
+                    <p>I'm not lazy, I'm just energy efficient. Why do something in 10 minutes when you can do it in 2 hours?</p>
                         @if(Route::has('login'))
                         @auth
                     <a href="{{url('/create')}}" class="btn btn-outline-dark rounded-pill">Start Writing</a>
