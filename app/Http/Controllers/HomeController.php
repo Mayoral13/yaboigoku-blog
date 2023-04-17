@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\Replies;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Query\IndexHint;
@@ -20,11 +22,19 @@ class HomeController extends Controller
     }
     public function single(){
         return view("home.single");
+    } ////////////////////INDEX,ALLPOST,GETPOST,REDIRECT
+
+    public function search_post(Request $req){
+        $search = $req->search;
+        $posts = Post::where('category','LIKE',"%$search%")->orWhere('title','LIKE',"%$search%")->orWhere('username','LIKE',"%$search%")->paginate();
+        return view('home.all_posts',compact('posts'));
     }
     public function loggedIN(){
         if(Auth::id()){
             $posts = Post::paginate(2);
             return view('home.home',compact('posts'));
+        }else{
+            return redirect('register');
         }
     }
     public function all_posts(){
@@ -33,9 +43,13 @@ class HomeController extends Controller
     }
     public function get_post($id){
         $post = Post::find($id);
+        $comments = Comment::find($id)->where('post_id','=',$id)->paginate(5);
+        $comment_count = Comment::with('comments')->where('post_id','=',$id)->count();
         $posts = Post::paginate(3);
-        return view('home.get_post',compact('post','posts'));
+        return view('home.get_post',compact('post','posts','comments','comment_count'));
     }
+
+    
     public function logout(){
         Session::flush();
         Auth::logout();
@@ -77,7 +91,7 @@ class HomeController extends Controller
              $post->save();
              return redirect('/redirect');
         }else{
-            return redirect('login');
+            return redirect('register');
         }
     }
 }

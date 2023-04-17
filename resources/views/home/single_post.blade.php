@@ -10,13 +10,13 @@
                                 <div class="writer d-flex align-items-center mb-3">
                                     <img src="{{ asset('home/assets/img/avatar-1.jpg') }}"
                                         class="img-writer rounded-circle me-2" alt="{{ $post->username }}">
-                                    <a href="#" class="writer-name fw-bolder">{{ $post->username }}</a>
+                                    <a href="javascript:void(0)" class="writer-name fw-bolder">{{ $post->username }}</a>
                                 </div>
                                 <a role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Save"><i
                                         class="bi bi-bookmark"></i></a>
                             </div>
                             <div class="img-container">
-                                <a href="#">
+                                <a href="javascript:void(0)">
                                     <img src="/product/{{ $post->image }}" alt="Post 4" class="mb-3 rounded-3"
                                         height="350px">
                                 </a>
@@ -50,6 +50,10 @@
                    @if(Route::has('login'))
                    @auth
                     <a href="javascript:void(0);" onclick = "comment()"class="btn btn-outline-dark rounded-pill mb-4 d-block">Click to Comment</a>
+                   
+                   
+                   @else
+                    <a href="{{url('register')}}"class="btn btn-outline-dark rounded-pill mb-4 d-block">Login to Comment</a>
                     @endauth
                     @endif
 
@@ -64,39 +68,31 @@
                              }
                            </script>
                     <!-- Comments -->
+                   
                     <div class="comments mb-5">
-                        <h4 class="fw-bolder mb-4">4 Comments</h4>
+                        <h4 class="fw-bolder mb-4">Comment: {{$comment_count}}</h4>
                         <!-- REPLY--->
+                        @foreach($comments as $comment)
                         <div class="d-flex mb-4">
-                            <img src="{{ asset('home/assets/img/avatar-3.jpg') }}" alt="Johnny Alexander"
+                            <img src="{{ asset('home/assets/img/avatar-3.jpg') }}" alt="{{$comment->username}}"
                                 class="rounded-circle me-3 img-commentator">
                             <div class="flex-column">
                                 <span class="d-block">
-                                    <a href="" class="text-dark">Johnny Alexander</a> &bullet; 2 days ago
+                                    <a href="javascript:void(0)" class="text-dark">{{$comment->username}}</a> &bullet;{{($comment->created_at)}}
                                 </span>
-                                <small class="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit.</small>
-                                <a href="" class="d-block">
-                                    <small>Reply</small>
-                            </a>
+
+                                <small class="text-secondary">{{$comment->comment}}</small>
+            
                             </div>
                         </div>
-                        <div class="d-flex replier mb-4">
-                            <img src="{{ asset('home/assets/img/avatar-4.jpg') }}" alt="Christine Gibson"
-                                class="rounded-circle me-3 img-commentator">
-                            <div class="flex-column">
-                                <span class="d-block">
-                                    <a href="" class="text-dark">Christine Gibson</a> <i
-                                        class="bi bi-patch-check-fill text-primary"></i>
-                                    &bullet; 2 days
-                                    ago
-                                </span>
-                                <small class="text-secondary">Lorem ipsum dolor sit amet consectetur
-                                    adipisicing
-                                    elit.
-                                </small>
-                            </div>
-                        </div>
+
+                        @endforeach
+                      
+                        
+                        
+                   
+
+                           
                     </div>
                         <!-- REPLIER--->
                       

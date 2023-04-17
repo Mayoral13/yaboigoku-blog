@@ -10,7 +10,11 @@
                     <h1 class="fw-bolder">Bloxithya is a place to write, read and connect</h1>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia nesciunt repellendus sapiente
                         qui doloremque quae.</p>
-                    <a href="" class="btn btn-outline-dark rounded-pill">Start Writing</a>
+                        @if(Route::has('login'))
+                        @auth
+                    <a href="{{url('/create')}}" class="btn btn-outline-dark rounded-pill">Start Writing</a>
+                    @endauth
+                    @endif
                 </div>
             </div>
         </div>

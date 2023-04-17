@@ -22,6 +22,7 @@ Route::get('/logout',[HomeController::class,'logout']);
 Route::get('/create',[HomeController::class,'create']);
 Route::post('/create_post',[HomeController::class,'create_post']);
 Route::get('/all_posts',[HomeController::class,'all_posts']);
+Route::get('/all_posts',[HomeController::class,'search_post']);
 Route::get('/get_post/{id}',[HomeController::class,'get_post']);
 Route::post('/comment/{id}',[HomeController::class,'comment']);
 Route::middleware([

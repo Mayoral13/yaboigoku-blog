@@ -39,12 +39,14 @@
          
             <!-- Sidebar -->
             <div class="col-lg-4">
-                <form class="d-none d-lg-block mb-4">
+                <form class="d-none d-lg-block mb-4"  action="{{url('/all_posts')}}" method="GET">
                     <div class="input-group">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="search" class="form-control" placeholder="Search" name="search">
+                        <input type="submit" value="Search">
                     </div>
                 </form>
+
+               
                 
                 <h4 class="fw-bolder mb-4">Popular Posts</h4>
                 <div class="row">

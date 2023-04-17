@@ -4,10 +4,10 @@
     <div class="container">
         <div class="row m-auto">
             <div>
-                <form class="d-none d-lg-block mb-4 w-50 m-auto">
+                <form class="d-none d-lg-block mb-4 w-50 m-auto"  action="{{url('/all_posts')}}" method="GET">
                     <div class="input-group">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="search" class="form-control" placeholder="Search" name="search">
+                        <input type="submit" value="Search">
                     </div>
                 </form>
             </div>
